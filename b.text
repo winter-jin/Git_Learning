@@ -9,3 +9,4 @@ Git has a mutable index called stage.
 Git tracks changes.
 My stupid boss
 hothothot
+--no-ff
