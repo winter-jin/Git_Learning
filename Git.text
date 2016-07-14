@@ -16,6 +16,7 @@
 *以上两句仅是选择的编辑器不同
 将文件添加到仓库：git add first.txt
 *add语句可以一次添加多个文件如：git add first.txt second.text third.text
+*add 后可以是文件名也可以是文件夹名字
 将文件提交到仓库：git commit -m "wrote a first file"
 *:在add，commity命令，或是刚刚修改完文件后可以尝试运行git status查看一下仓库状态
 再任意修改下仓库内文件
