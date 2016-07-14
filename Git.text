@@ -63,9 +63,40 @@ http://www.liaoxuefeng.comwiki/0013739516305929606dd18361248578c67b8067c8c017b00
 （3)使用commit之后
 直接使用版本回退方法即可
 
+5.删除文件
+创建一个新的文本文件(文件名称任意）：gedit second.text  或者  vim second.text
+对文件进行修改并执行git add second.text与 git commit -m"add a new file to be deleted"
+删除文件指令：rm test.text
+此时有两种选择
+（1)确实想要删除
+从git中移除文件：git rm second.text
+提交修改：git commit -m "remove second.txt"
+删除完成，可通过git status查看
 
+（2)发生误删情况
+将文件恢复到最新版本：git checkout -- second.txt
 
+六、远程仓库
+1.建立远程仓库
+这个世界上有个叫GitHub的神奇的网站，从名字就可以看出，这个网站就是提供Git仓库托管服务的，所以，只要注册一个GitHub账号，就可以免费获得Git远程仓库。
+创建SSH Key：ssh-keygen -t rsa -C "youremail@example.com"
+*：SSH为GitHub使用的通讯安全协议，将youremail处替换为你的邮箱。
+注册GitHub，注册时候注意不要使用网易的126与163邮箱，由于不明原因这两个邮箱收不到GitHub发出的注册验证邮件，而用qq邮箱却能瞬间受到。。。。
+用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。
+登陆GitHub，打开“Account settings”，“SSH Keys”页面：
+然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容。
 
+2、添加远程库
+登陆GitHub，然后，在右上角找到“Create a new repo”按钮，创建一个新的仓库，在Repository name填入learngit，其他保持默认设置，点击“Create repository”按钮，就成功地创建了一个新的Git仓库。
+将远程库关联至远程库：git remote add origin git@github.com:yourname/learngit.git
+*：将yourname处改为你注册GitHub时使用的名字；添加后，远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库。
+将当前本地库推送到远程库：git push origin master
+*：当你第一次使用Git的clone或者push命令连接GitHub时，会得到一个警告：这是因为Git使用SSH连接，而SSH连接在第一次验证GitHub服务器的Key时，需要你确认GitHub的Key的指纹信息是否真的来自GitHub的服务器，输入yes回车即可。
+
+3、从远程库克隆
+登陆GitHub，创建一个新的仓库，名字叫gitskills。
+我们勾选Initialize this repository with a README，这样GitHub会自动为我们创建一个README.md文件。创建完毕后，可以看到README.md文件。
+将一个远程库克隆到本地：git clone git@github.com:yourname/gitskills.git
 
 
 
