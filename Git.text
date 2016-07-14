@@ -193,9 +193,30 @@ git show <tagname>可以看到说明文字：git show v0.1
 一次性推送全部尚未推送到远程的本地标签：git push origin --tags
 从远程删除标签：git tag -d v0.9
                git push origin :refs/tags/v0.9
-要看看是否真的从远程库删除了标签，可以登陆GitHub查看。
+要看看是否真的从远程库删除了标签，可以登陆GitHub查看.
 
-
+九、Ubuntu上的Git图形界面
+目前个人的推荐是qgit这款软件，因为qgit支持qt，可能会在制作界面时有所便捷
+1.安装 QT4 库
+sudo apt-get install qt4-default
+2.下载QGit压缩包
+sudo apt-get install git
+3.克隆QGit客户端的仓库
+git clone git://repo.or.cz/qgit4/redivivus.git
+4.编译qgit
+进入redivivus的目录，并创建我们编译需要的makefile文件。进入目录，运行下面的命令。
+cd redivivus
+qmake qgit.pro
+安装make和g++包用于编译
+sudo apt-get install make g++
+用make命令来编译代码
+make
+5.安装qgit
+sudo make install
+从bin目录下复制qgit的二进制文件到/usr/bin/，这样我们就可以全局运行它了
+sudo cp bin/qgit /usr/bin/
+6.运行 QGit 客户端
+qgit
 
 
 
